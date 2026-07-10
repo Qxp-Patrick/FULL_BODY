@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Treino Full Body 3x – Controle por Semanas</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+body { font-family: Arial, sans-serif; background:#f4f6f8; padding:16px; }
+h1, h3 { color:#222; }
+.day { background:#fff; padding:16px; border-radius:10px; margin-bottom:20px; box-shadow:0 2px 6px rgba(0,0,0,.1); }
+table { width:100%; border-collapse:collapse; margin-top:10px; }
+th, td { border:1px solid #ccc; padding:6px; text-align:center; font-size:13px; }
+th { background:#eee; }
+input { width:100%; border:none; padding:6px; text-align:center; }
+input:focus { outline:2px solid #4CAF50; }
+.note { background:#e8f5e9; padding:10px; border-left:4px solid #4CAF50; margin-bottom:16px; }
+</style>
+</head>
+<body>
+
+<h1>🏋️ Treino Full Body 3x – Controle 4 Semanas</h1>
+
+<div class="note">
+Salvamento automático ativo.  
+Registre a carga usada em cada semana.  
+Abra sempre no mesmo navegador/dispositivo.
+</div>
+
+<script>
+function createRow(exercicio, series, reps, indexBase){
+    return `<tr>
+        <td>${exercicio}<br><small>${series} séries | ${reps}</small></td>
+        <td><input data-key="${indexBase}_1"></td>
+        <td><input data-key="${indexBase}_2"></td>
+        <td><input data-key="${indexBase}_3"></td>
+        <td><input data-key="${indexBase}_4"></td>
+    </tr>`;
+}
+</script>
+
+<div class="day">
+<h3>SEGUNDA – Ênfase PEITO</h3>
+<table>
+<tr>
+<th>Exercício</th>
+<th>Semana 1</th>
+<th>Semana 2</th>
+<th>Semana 3</th>
+<th>Semana 4</th>
+</tr>
+
+<script>
+document.write(createRow("Hack machine",4,"8–12",1));
+document.write(createRow("Supino inclinado",4,"8–12",2));
+document.write(createRow("Voador",3,"10–12",3));
+document.write(createRow("Pulley triângulo",3,"8–12",4));
+document.write(createRow("Elevação lateral",3,"12",5));
+document.write(createRow("Rosca alternada",3,"10–12",6));
+document.write(createRow("Tríceps corda",3,"10–12",7));
+</script>
+</table>
+</div>
+
+<div class="day">
+<h3>QUARTA – Ênfase COSTAS</h3>
+<table>
+<tr>
+<th>Exercício</th>
+<th>Semana 1</th>
+<th>Semana 2</th>
+<th>Semana 3</th>
+<th>Semana 4</th>
+</tr>
+
+<script>
+document.write(createRow("Leg press",3,"10–12",8));
+document.write(createRow("Pulley frente",3,"8–12",9));
+document.write(createRow("Remada fechada",3,"8–12",10));
+document.write(createRow("Supino reto",3,"8–12",11));
+document.write(createRow("Desenvolvimento",3,"8–12",12));
+document.write(createRow("Rosca Scott",3,"10–12",13));
+document.write(createRow("Tríceps pulley",3,"10–12",14));
+</script>
+</table>
+</div>
+
+<div class="day">
+<h3>SEXTA – Ênfase PERNAS / OMBRO</h3>
+<table>
+<tr>
+<th>Exercício</th>
+<th>Semana 1</th>
+<th>Semana 2</th>
+<th>Semana 3</th>
+<th>Semana 4</th>
+</tr>
+
+<script>
+document.write(createRow("Leg ou Hack",4,"8–12",15));
+document.write(createRow("Mesa flexora",3,"10–12",16));
+document.write(createRow("Cadeira extensora",3,"12",17));
+document.write(createRow("Remada invertida",3,"8–12",18));
+document.write(createRow("Supino declinado",3,"8–12",19));
+document.write(createRow("Elevação lateral",3,"12",20));
+document.write(createRow("Panturrilha",4,"15–25",21));
+</script>
+</table>
+</div>
+
+<script>
+const inputs = document.querySelectorAll("input");
+
+inputs.forEach(input => {
+    const key = "treino_semana_" + input.dataset.key;
+    const saved = localStorage.getItem(key);
+    if(saved) input.value = saved;
+
+    input.addEventListener("input", () => {
+        localStorage.setItem(key, input.value);
+    });
+});
+</script>
+
+</body>
+</html>
