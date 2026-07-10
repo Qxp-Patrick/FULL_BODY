@@ -1,6 +1,6 @@
 {
-  "name": "Simulador de Investimentos",
-  "short_name": "Investimentos",
+  "name": "Full body",
+  "short_name": "Full Body",
   "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#0f172a",
